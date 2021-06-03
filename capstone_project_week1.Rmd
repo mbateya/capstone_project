@@ -1,0 +1,43 @@
+---
+title: "Milestone Report"
+author: "Mohammad Ateya"
+date: "6/3/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## Data Science Capstone Week 2 Milestone Report 
+### Exploratory Data Analysis
+
+This week-2 milestone report of the data science captsone project aims at exploring the datsets which were downloaded from the course's [website](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip). 
+There are three different files in the English language database which will be explored in this analysis:
+
+* en_US.blogs.txt
+* en_US.news.txt
+* en_US.twitter.txt
+
+```{r reading the data}
+library(tidyverse);library(knitr)
+us_twitter <- read_lines("./dataset/en_US/en_US.twitter.txt")
+us_blogs <- read_lines("./dataset/en_US/en_US.blogs.txt")
+us_news <-  read_lines("./dataset/en_US/en_US.news.txt")
+# convert to data frames:
+us_twitter_df <- tibble(us_twitter)
+us_blogs_df <- tibble(us_blogs)
+us_news_df <- tibble(us_news)
+```
+#### **Display the first 6 rows of each dataset:**
+``` {r exploratory analysis head}
+
+kable(head(us_twitter_df))
+kable(head(us_blogs_df))
+kable(head(us_news_df))
+# **Display summary of the data**
+```
+#### **Display the summary of each dataset:**
+```{r exploratory analysis summary}
+kable(cbind(summary(us_twitter_df),summary(us_blogs_df),summary(us_news_df)))
+```
