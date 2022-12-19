@@ -2,7 +2,9 @@
 title: "Milestone Report"
 author: "Mohammad Ateya"
 date: "6/3/2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -21,9 +23,9 @@ There are three different files in the English language database which will be e
 
 ```{r reading the data}
 library(tidyverse);library(knitr)
-us_twitter <- read_lines("./dataset/en_US/en_US.twitter.txt")
-us_blogs <- read_lines("./dataset/en_US/en_US.blogs.txt")
-us_news <-  read_lines("./dataset/en_US/en_US.news.txt")
+us_twitter <- read_lines("./final/en_US/en_US.twitter.txt")
+us_blogs <- read_lines("./final/en_US/en_US.blogs.txt")
+us_news <-  read_lines("./final/en_US/en_US.news.txt")
 # convert to data frames:
 us_twitter_df <- tibble(us_twitter)
 us_blogs_df <- tibble(us_blogs)
